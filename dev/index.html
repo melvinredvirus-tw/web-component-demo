@@ -1,22 +1,29 @@
 <!doctype html>
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>&lt;my-element> Demo</title>
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
-    <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>&lt;my-element> Demo</title>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/lit/polyfill-support.js"></script>
+  <script type="module" src="../my-element.js"></script>
+  <script type="module" src="../my-card.js"></script>
+  <style>
+    p {
+      border: solid 1px blue;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <my-element>
+    <p>This is child content</p>
+  </my-element>
+  <my-card name="Sample Product"
+    image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSvv9q8T2tk0VoIc5_mVxRoVEcrNn2mZDKz_1IJ1QHUYCcAWoH8Fr39DFAk5z7A7_ffy8jMUH0hlcZqcxzSARUfK4VYnPidtkUVuhAWNCisOTAA79B4F2LpHA"
+    description="This is a sample product description." price="19.99"></my-card>
+</body>
+
 </html>
