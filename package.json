@@ -6,6 +6,7 @@
   "main": "my-element.js",
   "module": "my-element.js",
   "type": "module",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
