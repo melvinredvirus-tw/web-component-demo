@@ -13,6 +13,7 @@
   <script type="module" src="../dist/my-form.js"></script>
   <script type="module" src="../dist/loader-skeleton.js"></script>
   <script type="module" src="../dist/my-snackbar.js"></script>
+  <script type="module" src="../dist/my-accordion.js"></script>
   <style>
     p {
       border: solid 1px blue;
@@ -36,13 +37,12 @@
   <my-snackbar id="snackbar"></my-snackbar>
   <button id="notify-btn">Show Notification</button>
   <div class="card-grid">
-    <my-card name="Sample Product 1"
-      image="https://5.imimg.com/data5/SELLER/Default/2023/3/CR/HS/CC/15900654/apple-iphone-14-pro-max-128gb-blue-mobile-phone-500x500.png"
-      description="This is a sample product description." price="199.99"></my-card>
-    <my-card name="Sample Product 2" image="https://cdn.mos.cms.futurecdn.net/PLdvLeFwnqidAYjRVvtFxX.jpg"
-      description="This is a sample product description." price="89.99"></my-card>
-    <my-card name="Sample Product 3" image="https://5.imimg.com/data5/NN/PW/XN/SELLER-8587078/11-500x500.jpg"
-      description="This is a sample product description." price="59.99"></my-card>
+    <my-card name="Sample Product 1" image="" description="This is a sample product description."
+      price="199.99"></my-card>
+    <my-card name="Sample Product 2" image="" description="This is a sample product description."
+      price="89.99"></my-card>
+    <my-card name="Sample Product 3" image="" description="This is a sample product description."
+      price="59.99"></my-card>
   </div>
   <loader-skeleton shape="rect" size="400x60"></loader-skeleton>
   <loader-skeleton shape="circle" size="80x80"></loader-skeleton>
@@ -61,6 +61,11 @@
       <input name="age" type="number" />
     </label>
   </my-form>
+  <my-accordion items='[
+    { "title": "Section 1", "content": "Content for section 1" },
+    { "title": "Section 2", "content": "Content for section 2" },
+    { "title": "Section 3", "content": "Content for section 3" }
+  ]'></my-accordion>
   <script>
     const button = document.getElementById('notify-btn');
     const snackbar = document.getElementById('snackbar');
