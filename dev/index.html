@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>&lt;my-element> Demo</title>
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
-    <script type="module" src="../my-header.js"></script>
-    <script type="module" src="../my-card.js"></script>
-    <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
-    <my-header name="Header" />
-    <my-card
-      name="Sample Product"
-      image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSvv9q8T2tk0VoIc5_mVxRoVEcrNn2mZDKz_1IJ1QHUYCcAWoH8Fr39DFAk5z7A7_ffy8jMUH0hlcZqcxzSARUfK4VYnPidtkUVuhAWNCisOTAA79B4F2LpHA"
-      description="This is a sample product description."
-      price="19.99"
-    ></my-card>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>&lt;my-element> Demo</title>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/lit/polyfill-support.js"></script>
+  <script type="module" src="../my-element.js"></script>
+  <script type="module" src="../my-header.js"></script>
+  <script type="module" src="../my-card.js"></script>
+  <style>
+    p {
+      border: solid 1px blue;
+      padding: 8px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      padding: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <my-element>
+    <p>This is child content</p>
+  </my-element>
+  <my-header name="Header" />
+  <div class="card-grid">
+    <my-card name="Sample Product 1"
+      image="https://5.imimg.com/data5/SELLER/Default/2023/3/CR/HS/CC/15900654/apple-iphone-14-pro-max-128gb-blue-mobile-phone-500x500.png"
+      description="This is a sample product description." price="199.99"></my-card>
+    <my-card name="Sample Product 2" image="https://cdn.mos.cms.futurecdn.net/PLdvLeFwnqidAYjRVvtFxX.jpg"
+      description="This is a sample product description." price="89.99"></my-card>
+    <my-card name="Sample Product 3" image="https://5.imimg.com/data5/NN/PW/XN/SELLER-8587078/11-500x500.jpg"
+      description="This is a sample product description." price="59.99"></my-card>
+  </div>
+</body>
+
 </html>
