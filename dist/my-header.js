@@ -14,7 +14,9 @@ let MyHeader = class MyHeader extends LitElement {
     render() {
         return html `
       <header>
-        <span class="title">${this.heading}</span>
+        <div class="title">
+          <slot name="title">"></slot>
+        </div>
         <div class="actions">
           <slot name="actions"></slot>
         </div>
@@ -44,9 +46,8 @@ MyHeader.styles = css `
       font-family: var(--header-font-family);
     }
     .title {
-      font-size: var(--header-title-size);
-      font-weight: var(--header-title-weight);
-      color: var(--header-title-color);
+      display: flex;
+      gap: var(--header-actions-gap);
     }
     .actions {
       display: flex;

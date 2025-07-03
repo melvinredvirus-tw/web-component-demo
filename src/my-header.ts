@@ -25,9 +25,8 @@ export class MyHeader extends LitElement {
       font-family: var(--header-font-family);
     }
     .title {
-      font-size: var(--header-title-size);
-      font-weight: var(--header-title-weight);
-      color: var(--header-title-color);
+      display: flex;
+      gap: var(--header-actions-gap);
     }
     .actions {
       display: flex;
@@ -41,7 +40,9 @@ export class MyHeader extends LitElement {
   override render() {
     return html`
       <header>
-        <span class="title">${this.heading}</span>
+        <div class="title">
+          <slot name="title">"></slot>
+        </div>
         <div class="actions">
           <slot name="actions"></slot>
         </div>
