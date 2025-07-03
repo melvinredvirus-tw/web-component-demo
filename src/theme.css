@@ -80,6 +80,29 @@
   --z-index-modal: 1040;
   --z-index-toast: 1050;
   --z-index-tooltip: 1060;
+
+  --theme-snackbar-bg: #333;
+  --theme-snackbar-color: #fff;
+  --theme-snackbar-padding: 16px 24px;
+  --theme-snackbar-radius: 4px;
+  --theme-snackbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --theme-snackbar-top: 10%;
+  --theme-snackbar-z-index: 1000;
+
+  /* Fallbacks for nested variables */
+  --theme-surface: #333;
+  --theme-on-surface: #fff;
+
+  --theme-border-color: #ccc;
+  --theme-accordion-bg: #fff;
+  --theme-accordion-radius: 8px;
+  --theme-accordion-gap: 24px;
+  --theme-accordion-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --theme-accordion-header-bg: #f5f5f5;
+  --theme-accordion-header-hover-bg: #e0e7ff;
+  --theme-accordion-header-color: #222;
+  --theme-accordion-content-bg: #fff;
+  --theme-accordion-content-color: #444;
 }
 
 /* 🌙 Dark Theme Override */

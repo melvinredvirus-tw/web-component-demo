@@ -9,26 +9,33 @@ export class MyProductCard extends LitElement {
   @property({ type: Number }) price = 0;
 
   static override styles = css`
+    .name {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin: var(--space-sm) 0;
+    }
+    .description {
+      font-size: var(--font-size-base);
+      color: var(--color-muted);
+      margin: var(--space-sm) 0;
+    }
+    .price {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text, #333);
+      margin: var(--space-sm) 0;
+    }
     .image {
       width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
     }
-    .name {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin: 8px 0;
-    }
-    .description {
-      font-size: 1em;
-      color: #555;
-      margin: 8px 0;
-    }
-    .price {
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #333;
-      margin: 8px 0;
+    ::slotted([slot="link"]) {
+      color: var(--color-primary);
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: var(--space-sm);
     }
   `;
 

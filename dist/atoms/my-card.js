@@ -19,11 +19,12 @@ let MyCard = class MyCard extends LitElement {
 MyCard.styles = css `
     :host {
       display: block;
-      border: 1px solid #ccc;
-      border-radius: 8px; 
-      padding: 16px;
-      max-width: 300px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius); 
+      padding: var(--space-md);
+      max-width: var(--card-max-width, 300px);
+      box-shadow: var(--shadow-md);
+      background: var(--color-surface);
     }
     .card {
       display: flex;

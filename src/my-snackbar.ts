@@ -9,21 +9,21 @@ export class MySnackbar extends LitElement {
   static override styles = css`
     :host {
       position: fixed;
-      top: 10%;
+      top: var(--theme-snackbar-top);
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;
+      z-index: var(--theme-snackbar-z-index);
       display: none;
     }
     :host([visible]) {
       display: block;
     }
     .snackbar {
-      background-color: #333;
-      color: #fff;
-      padding: 16px 24px;
-      border-radius: 4px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: var(--theme-snackbar-bg);
+      color: var(--theme-snackbar-color);
+      padding: var(--theme-snackbar-padding);
+      border-radius: var(--theme-snackbar-radius);
+      box-shadow: var(--theme-snackbar-shadow);
       animation: fade-in-out 4s ease;
     }
     @keyframes fade-in-out {

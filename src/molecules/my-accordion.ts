@@ -8,20 +8,22 @@ export class MyAccordion extends LitElement {
 
   static override styles = css`
     .item {
-      border-bottom: 1px solid #ccc;
+      border-bottom: var(--border-width) var(--border-style) var(--theme-border-color);
     }
 
     .header {
-      background: #f5f5f5;
-      padding: 1rem;
+      background: var(--theme-accordion-header-bg);
+      padding: var(--space-md);
       cursor: pointer;
-      font-weight: bold;
+      font-weight: var(--font-weight-bold);
+      color: var(inherit);
     }
 
     .content {
-      padding: 1rem;
+      padding: var(--space-md);
       display: none;
-      background: #fff;
+      background: var(--theme-accordion-content-bg);
+      color: var(--theme-accordion-content-color, inherit);
     }
 
     .content[open] {
