@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
-let AccordionItem = class AccordionItem extends LitElement {
+let MyAccordion = class MyAccordion extends LitElement {
     constructor() {
         super(...arguments);
         this.open = false;
@@ -26,7 +26,7 @@ let AccordionItem = class AccordionItem extends LitElement {
   `;
     }
 };
-AccordionItem.styles = css `
+MyAccordion.styles = css `
     .item {
       border-bottom: 1px solid #ccc;
     }
@@ -50,11 +50,11 @@ AccordionItem.styles = css `
   `;
 __decorate([
     property({ type: Boolean })
-], AccordionItem.prototype, "open", void 0);
+], MyAccordion.prototype, "open", void 0);
 __decorate([
     property({ type: String })
-], AccordionItem.prototype, "title", void 0);
-AccordionItem = __decorate([
-    customElement('accordion-item')
-], AccordionItem);
-export { AccordionItem };
+], MyAccordion.prototype, "title", void 0);
+MyAccordion = __decorate([
+    customElement('my-accordion')
+], MyAccordion);
+export { MyAccordion };

@@ -1,5 +1,5 @@
 import { LitElement } from 'lit';
-export declare class AccordionItem extends LitElement {
+export declare class MyAccordion extends LitElement {
     open: boolean;
     title: string;
     static styles: import("lit").CSSResult;
@@ -8,6 +8,6 @@ export declare class AccordionItem extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        'accordion-item': AccordionItem;
+        'accordion-item': MyAccordion;
     }
 }

@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 
-@customElement('accordion-item')
-export class AccordionItem extends LitElement {
+@customElement('my-accordion')
+export class MyAccordion extends LitElement {
   @property({ type: Boolean }) open = false;
   @property({ type: String }) override title = '';
 
@@ -47,6 +47,6 @@ export class AccordionItem extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'accordion-item': AccordionItem;
+    'accordion-item': MyAccordion;
   }
 }
