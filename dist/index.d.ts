@@ -4,4 +4,6 @@ import { MyForm } from './my-form';
 import { MyHeader } from './my-header';
 import { LoaderSkeleton } from './loader-skeleton';
 import { MyAccordion } from './my-accordion';
-export { MyAccordion, LoaderSkeleton, MyCard, MyHeader, MyForm, MyProductCard, };
+import { MyModal } from './my-modal';
+import { MySnackbar } from './my-snackbar';
+export { MySnackbar, MyAccordion, MyModal, LoaderSkeleton, MyCard, MyHeader, MyForm, MyProductCard, };

@@ -4,10 +4,10 @@ import { MyForm } from './my-form';
 import { MyHeader } from './my-header';
 import { LoaderSkeleton } from './loader-skeleton';
 import { MyAccordion } from './my-accordion';
-
-export {
-  // Atoms
-  MyAccordion, LoaderSkeleton, MyCard, MyHeader, MyForm,
-  // Molecules
-  MyProductCard,
-};
+import { MyModal } from './my-modal';
+import { MySnackbar } from './my-snackbar';
+export { 
+// Atoms
+MySnackbar, MyAccordion, MyModal, LoaderSkeleton, MyCard, MyHeader, MyForm, 
+// Molecules
+MyProductCard, };

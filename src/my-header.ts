@@ -5,27 +5,34 @@ import {customElement, property} from 'lit/decorators.js';
 export class MyHeader extends LitElement {
   static override styles = css`
     header {
-      display: block;
-      background: #1976d2;
-      color: white;
-      padding: 16px;
-      font-size: 1.5rem;
-      font-weight: bold;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      letter-spacing: 1px;
+      justify-content: space-between;
+      padding: 16px;
+      background: linear-gradient(90deg, #4a90e2, #50e3c2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: white;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
     }
   `;
 
   @property()
-  name = 'Header';
+  heading = 'Header';
 
   override render() {
     return html`
-      <header class="header">
-        <h1>${this.name}</h1>
-        <h1>Cart</h1>
+      <header>
+        <span class="title">${this.heading}</span>
+        <div class="actions">
+          <slot name="actions"></slot>
+        </div>
       </header>
     `;
   }
