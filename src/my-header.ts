@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {customElement} from 'lit/decorators.js';
 
 @customElement('my-header')
 export class MyHeader extends LitElement {
@@ -33,9 +33,6 @@ export class MyHeader extends LitElement {
       gap: var(--header-actions-gap);
     }
   `;
-
-  @property()
-  heading = 'Header';
 
   override render() {
     return html`

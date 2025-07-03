@@ -1,7 +1,6 @@
 import { LitElement } from 'lit';
 export declare class MyHeader extends LitElement {
     static styles: import("lit").CSSResult;
-    heading: string;
     render(): import("lit-html").TemplateResult<1>;
 }
 declare global {

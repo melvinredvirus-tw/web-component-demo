@@ -5,12 +5,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 let MyHeader = class MyHeader extends LitElement {
-    constructor() {
-        super(...arguments);
-        this.heading = 'Header';
-    }
     render() {
         return html `
       <header>
@@ -54,9 +50,6 @@ MyHeader.styles = css `
       gap: var(--header-actions-gap);
     }
   `;
-__decorate([
-    property()
-], MyHeader.prototype, "heading", void 0);
 MyHeader = __decorate([
     customElement('my-header')
 ], MyHeader);
