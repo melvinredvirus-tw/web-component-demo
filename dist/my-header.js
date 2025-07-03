@@ -41,4 +41,3 @@ MyHeader = __decorate([
     customElement('my-header')
 ], MyHeader);
 export { MyHeader };
-//# sourceMappingURL=my-header.js.map

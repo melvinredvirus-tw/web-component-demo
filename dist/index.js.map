@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AACnC,OAAO,EAAE,QAAQ,EAAE,MAAM,aAAa,CAAC;AAEvC,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,CAAA","sourcesContent":["import { MyCard } from './my-card';\nimport { MyHeader } from './my-header';\n\nexport { MyCard, MyHeader }\n"]}

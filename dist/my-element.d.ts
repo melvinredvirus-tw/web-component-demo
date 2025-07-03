@@ -34,4 +34,3 @@ declare global {
         'my-element': MyElement;
     }
 }
-//# sourceMappingURL=my-element.d.ts.map

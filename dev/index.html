@@ -9,7 +9,7 @@
   <script src="../node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="../my-element.js"></script>
   <script type="module" src="../dist/my-header.js"></script>
-  <script type="module" src="../dist/my-card.js"></script>
+  <script type="module" src="../dist/molecules/my-product-card.js"></script>
   <script type="module" src="../dist/my-form.js"></script>
   <script type="module" src="../dist/loader-skeleton.js"></script>
   <script type="module" src="../dist/my-snackbar.js"></script>
@@ -33,12 +33,12 @@
   <my-snackbar id="snackbar"></my-snackbar>
   <button id="notify-btn">Show Notification</button>
   <div class="card-grid">
-    <my-card name="Sample Product 1" image="" description="This is a sample product description."
-      price="199.99"></my-card>
-    <my-card name="Sample Product 2" image="" description="This is a sample product description."
-      price="89.99"></my-card>
-    <my-card name="Sample Product 3" image="" description="This is a sample product description."
-      price="59.99"></my-card>
+    <my-product-card name="Sample Product 1" image="" description="This is a sample product description."
+      price="199.99"></my-product-card>
+    <my-product-card name="Sample Product 2" image="" description="This is a sample product description."
+      price="89.99"></my-product-card>
+    <my-product-card name="Sample Product 3" image="" description="This is a sample product description."
+      price="59.99"></my-product-card>
   </div>
   <loader-skeleton shape="rect" size="400x60"></loader-skeleton>
   <loader-skeleton shape="circle" size="80x80"></loader-skeleton>

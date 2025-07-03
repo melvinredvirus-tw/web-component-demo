@@ -9,4 +9,3 @@ declare global {
         'my-header': MyHeader;
     }
 }
-//# sourceMappingURL=my-header.d.ts.map
