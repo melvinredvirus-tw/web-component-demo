@@ -5,8 +5,8 @@ import '../atoms/my-card';
 @customElement('my-product-card')
 export class MyProductCard extends LitElement {
   @property({ type: String }) name = '';
+  @property({ type: String }) override id = '';
   @property({ type: String }) image = '';
-  @property({ type: String }) description = '';
   @property({ type: Number }) price = 0;
 
   static override styles = css`
@@ -38,8 +38,8 @@ export class MyProductCard extends LitElement {
       <my-card>
         <img class="image" src="${this.image}" alt="${this.name}" />
         <div class="name">${this.name}</div>
-        <div class="description">${this.description}</div>
         <div class="price">$${this.price.toFixed(2)}</div>
+        <a href="/products/${encodeURIComponent(this.id)}">View Details →</a>
       </my-card>
     `;
   }
