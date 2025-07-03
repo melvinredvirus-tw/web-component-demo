@@ -37,4 +37,4 @@ jobs:
           tag_name: ${{ github.ref_name }}
           files: artifacts/web-component-demo.tar.gz
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_PAT }}
