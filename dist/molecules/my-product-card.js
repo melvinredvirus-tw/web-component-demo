@@ -11,9 +11,9 @@ let MyProductCard = class MyProductCard extends LitElement {
     constructor() {
         super(...arguments);
         this.name = '';
-        this.productId = '';
         this.image = '';
         this.linkText = '';
+        this.link = '';
         this.price = 0;
     }
     render() {
@@ -22,7 +22,7 @@ let MyProductCard = class MyProductCard extends LitElement {
         <img class="image" src="${this.image}" alt="${this.name}" />
         <div class="name">${this.name}</div>
         <div class="price">$${this.price.toFixed(2)}</div>
-        <a href="/products/${encodeURIComponent(this.productId)}">${this.linkText}</a>
+        <a href="${this.link}">${this.linkText}</a>
       </my-card>
     `;
     }
@@ -55,13 +55,13 @@ __decorate([
 ], MyProductCard.prototype, "name", void 0);
 __decorate([
     property({ type: String })
-], MyProductCard.prototype, "productId", void 0);
-__decorate([
-    property({ type: String })
 ], MyProductCard.prototype, "image", void 0);
 __decorate([
     property({ type: String })
 ], MyProductCard.prototype, "linkText", void 0);
+__decorate([
+    property({ type: String })
+], MyProductCard.prototype, "link", void 0);
 __decorate([
     property({ type: Number })
 ], MyProductCard.prototype, "price", void 0);
