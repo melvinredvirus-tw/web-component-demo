@@ -27,8 +27,11 @@ jobs:
 
       - name: Archive build output
         run: |
+          mkdir -p package
           mkdir -p artifacts
-          tar -czf artifacts/web-component-demo.tar.gz dist/
+          cp package.json README.md LICENSE package/
+          cp -r dist package/
+          tar -czf artifacts/web-component-demo.tar.gz -C package .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
