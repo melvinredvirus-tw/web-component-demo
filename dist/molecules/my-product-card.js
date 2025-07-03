@@ -20,8 +20,8 @@ let MyProductCard = class MyProductCard extends LitElement {
         <img class="image" src="${this.image}" alt="${this.name}" />
         <div class="name">${this.name}</div>
         <div class="price">$${this.price.toFixed(2)}</div>
+        <slot name="link"></slot>
       </my-card>
-      <slot name="link"></slot>
     `;
     }
 };

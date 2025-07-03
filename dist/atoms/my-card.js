@@ -11,6 +11,7 @@ let MyCard = class MyCard extends LitElement {
         return html `
       <div class="card">
         <slot></slot>
+        <slot name="link"></slot>
       </div>
     `;
     }
