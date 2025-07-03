@@ -12,34 +12,41 @@ export class MyModal extends LitElement {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
-      z-index: 1000;
+      z-index: var(--z-index-modal, 1040);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .modal {
-      background: #f9fafc;
-      border-radius: 8px;
-      border: 2px solid #e2e8f0;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-      padding: 24px;
+      background: var(--color-bg, #f9fafc);
+      border-radius: var(--border-radius, 8px);
+      border: var(--border-width, 2px) var(--border-style, solid)
+        var(--border-color, #e2e8f0);
+      box-shadow: var(--shadow-lg, 0 2px 16px rgba(0, 0, 0, 0.2));
+      padding: var(--space-lg, 24px);
       position: relative;
-      z-index: 1001;
+      z-index: calc(var(--z-index-modal, 1040) + 1);
       display: flex;
       flex-direction: column;
       min-width: 200px;
       min-height: 100px;
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
     }
 
     .close {
       position: absolute;
-      top: 8px;
-      right: 12px;
+      top: var(--space-sm, 8px);
+      right: var(--space-md, 16px);
       background: none;
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
+      color: var(--color-text, #212529);
+      transition: color var(--transition-fast, 0.15s ease-in-out);
+    }
+    .close:hover {
+      color: var(--color-accent, #ff5722);
     }
   `;
 

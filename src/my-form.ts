@@ -7,38 +7,57 @@ export class MyForm extends LitElement {
     form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--space-md, 16px);
       max-width: 320px;
       margin: 0 auto;
-      padding: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #fafafa;
+      padding: var(--space-md, 16px);
+      border: var(--border-width, 1px) var(--border-style, solid)
+        var(--border-color, #dee2e6);
+      border-radius: var(--border-radius, 8px);
+      background: var(--color-bg-alt, #f8f9fa);
+      box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
     }
     label {
-      font-weight: 500;
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-text, #212529);
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
     }
-    input {
-      padding: 8px;
-      font-size: 1rem;
-      border: 1px solid #bbb;
-      border-radius: 4px;
+    input,
+    select,
+    textarea {
+      padding: var(--space-sm, 8px);
+      font-size: var(--font-size-base, 16px);
+      border: var(--border-width, 1px) var(--border-style, solid)
+        var(--border-color, #dee2e6);
+      border-radius: var(--border-radius-sm, 4px);
+      background: var(--color-bg, #fff);
+      color: var(--color-text, #212529);
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
+      transition: border-color var(--transition-fast, 0.15s ease-in-out);
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-primary, #007bff);
     }
     button {
-      background: #1976d2;
-      color: white;
+      background: var(--color-primary, #007bff);
+      color: var(--color-bg, #fff);
       border: none;
-      padding: 10px 16px;
-      border-radius: 4px;
-      font-size: 1rem;
+      padding: var(--space-sm, 10px) var(--space-md, 16px);
+      border-radius: var(--border-radius-sm, 4px);
+      font-size: var(--font-size-base, 16px);
       cursor: pointer;
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
+      transition: background var(--transition-fast, 0.15s ease-in-out);
     }
     button:hover {
-      background: #1565c0;
+      background: var(--color-accent, #ff5722);
     }
   `;
 
-  // ...existing code...
   private _onSubmit(e: Event) {
     e.preventDefault();
     const data: Record<string, string> = {};
@@ -102,7 +121,6 @@ export class MyForm extends LitElement {
       }
     });
   }
-  // ...existing code...
 
   override render() {
     return html`

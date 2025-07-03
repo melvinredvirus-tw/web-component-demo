@@ -5,19 +5,26 @@ import {customElement, property} from 'lit/decorators.js';
 export class LoaderSkeleton extends LitElement {
   static override styles = css`
     .skeleton {
-      background: linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%);
+      background: var(
+        --skeleton-bg,
+        linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%)
+      );
       background-size: 400% 100%;
       animation: shimmer 1.4s ease infinite;
       display: inline-block;
+      /* Use border radius variable for consistency */
+      border-radius: var(--border-radius-sm, 4px);
+      min-width: 1em;
+      min-height: 1em;
     }
     .rect {
-      border-radius: 4px;
+      border-radius: var(--border-radius-sm, 4px);
     }
     .circle {
       border-radius: 50%;
     }
     .text {
-      border-radius: 4px;
+      border-radius: var(--border-radius-sm, 4px);
       height: 1em;
       width: 8em;
     }
