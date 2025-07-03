@@ -27,8 +27,16 @@
         "strict": true
       }
     ],
-    "types": ["mocha"]
+    "types": []
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*test.ts"]
+  "exclude": [
+    "src/**/*test.ts",
+    "node_modules",
+    ".storybook",
+    "**/*.stories.ts",
+    "**/*.stories.mdx",
+    "test",
+    "**/vitest.*.ts"
+  ]
 }
