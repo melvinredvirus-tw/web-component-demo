@@ -38,7 +38,7 @@ export class MyHeader extends LitElement {
     return html`
       <header>
         <div class="title">
-          <slot name="title">"></slot>
+          <slot name="title"></slot>
         </div>
         <div class="actions">
           <slot name="actions"></slot>
