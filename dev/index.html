@@ -19,6 +19,7 @@
     <script type="module" src="../dist/atoms/my-datepicker.js"></script>
     <script type="module" src="../dist/molecules/my-tabs.js"></script>
     <script type="module" src="../dist/molecules/my-accordion.js"></script>
+    <script type="module" src="../dist/atoms/my-checkbox.js"></script>
     <script type="module" src="../dist/atoms/my-loader.js"></script>
     <style>
       .card-grid {
@@ -122,6 +123,13 @@
 
       <my-button type="submit">Submit</my-button>
     </my-form>
+
+    <my-checkbox
+  label="Accept Terms"
+  .checked=${true}
+  .disabled=${false}
+  @change=${(e) => console.log(e.detail.checked)}
+></my-checkbox>
     <my-tabs>
       <button slot="tab">Tab 1</button>
       <button slot="tab">Tab 2</button>
