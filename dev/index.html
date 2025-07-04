@@ -16,6 +16,7 @@
     <script type="module" src="../dist/my-snackbar.js"></script>
     <script type="module" src="../dist/atoms/my-input.js"></script>
     <script type="module" src="../dist/atoms/my-button.js"></script>
+    <script type="module" src="../dist/molecules/my-tabs.js"></script>
     <script type="module" src="../dist/molecules/my-accordion.js"></script>
     <style>
       .card-grid {
@@ -119,5 +120,14 @@
 
       <my-button type="submit">Submit</my-button>
     </my-form>
+    <my-tabs>
+      <button slot="tab">Tab 1</button>
+      <button slot="tab">Tab 2</button>
+      <button slot="tab">Tab 3</button>
+
+      <div slot="panel">Content for Tab 1</div>
+      <div slot="panel">Content for Tab 2</div>
+      <div slot="panel">Content for Tab 3</div>
+    </my-tabs>
   </body>
 </html>
