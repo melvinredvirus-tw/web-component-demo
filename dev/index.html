@@ -21,6 +21,7 @@
     <script type="module" src="../dist/molecules/my-accordion.js"></script>
     <script type="module" src="../dist/atoms/my-checkbox.js"></script>
     <script type="module" src="../dist/atoms/my-loader.js"></script>
+    <script type="module" src="../dist/atoms/my-dropdown.js"></script>
     <style>
       .card-grid {
         display: grid;
@@ -148,5 +149,14 @@
     ></my-date-picker>
     <my-loader></my-loader>
     <my-loader size="3rem" color="#e60100" label="Saving..."></my-loader>
+    <!-- <my-dropdown
+  .options=${[
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
+  ]}
+  placeholder="Select an option"
+></my-dropdown> -->
+<my-dropdown options='[{"value":"JavaScript","label":"JavaScript"},{"value":"Python","label":"Python"},{"value":"TypeScript","label":"TypeScript"}]'></my-dropdown>
   </body>
 </html>
