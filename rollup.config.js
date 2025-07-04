@@ -16,10 +16,10 @@ export default {
   output: {
     dir: 'dist', // Output to the 'dist' directory
     format: 'es', // Output as ES Modules
-    preserveModules: true, // Crucial: maintains original module structure in 'dist'
+    preserveModules: false, // Crucial: maintains original module structure in 'dist'
     preserveModulesRoot: 'src', // Maps 'src/' paths to 'dist/'
     entryFileNames: '[name].js', // e.g., 'index.js', 'components/my-button.js'
-    chunkFileNames: 'chunks/[name]-[hash].js' // For shared code chunks (e.g., Lit library itself)
+    // chunkFileNames: 'chunks/[name]-[hash].js' // For shared code chunks (e.g., Lit library itself)
   },
   external: ['lit', 'lit/decorators.js', '@lit/reactive-element', 'tslib'], // Add any other peer dependencies
   onwarn(warning) {

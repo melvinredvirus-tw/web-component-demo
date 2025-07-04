@@ -9,6 +9,7 @@
     // "inlineSources": true,
     "outDir": "./dist",
     "rootDir": "./src",
+    "declarationDir": "./dist/types",  /* Output .d.ts files to the 'types' directory */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
