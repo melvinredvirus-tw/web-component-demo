@@ -34,9 +34,10 @@
     "src/**/*test.ts",
     "node_modules",
     ".storybook",
+    "src/stories/**/*",
     "**/*.stories.ts",
     "**/*.stories.mdx",
-    "test",
+    "src/test",
     "**/vitest.*.ts"
   ]
 }
