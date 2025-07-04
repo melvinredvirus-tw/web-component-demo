@@ -8,12 +8,14 @@ import summary from 'rollup-plugin-summary';
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import minifyHTML from 'rollup-plugin-minify-html-literals'; // For HTML/CSS in template literals
+import typescript from '@rollup/plugin-typescript'; // Import the TypeScript plugin
 
 export default {
-  input: 'my-element.js',
+  input: 'src/index.ts',
   output: {
-    file: 'my-element.bundled.js',
-    format: 'esm',
+    file: 'dist/index.bundled.ts',
+    format: 'es',
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -21,8 +23,12 @@ export default {
     }
   },
   plugins: [
-    replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
+    replace({ preventAssignment: false, 'Reflect.decorate': 'undefined' }),
     resolve(),
+    typescript({
+      tsconfig: './tsconfig.json' // Point to your tsconfig.json
+    }),
+    minifyHTML.default(), // Minify HTML and CSS in tagged template literals (before terser)
     /**
      * This minification setup serves the static site generation.
      * For bundling and minification, check the README.md file.
@@ -35,6 +41,14 @@ export default {
         properties: {
           regex: /^__/,
         },
+      },
+      output: {
+        comments: false, // Remove all comments
+      },
+      compress: {
+        drop_console: true, // Remove console.log in production
+        drop_debugger: true,
+        dead_code: true,
       },
     }),
     summary(),
