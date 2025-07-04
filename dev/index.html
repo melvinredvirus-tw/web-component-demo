@@ -16,6 +16,7 @@
     <script type="module" src="../dist/my-snackbar.js"></script>
     <script type="module" src="../dist/atoms/my-input.js"></script>
     <script type="module" src="../dist/atoms/my-button.js"></script>
+    <script type="module" src="../dist/atoms/my-datepicker.js"></script>
     <script type="module" src="../dist/molecules/my-tabs.js"></script>
     <script type="module" src="../dist/molecules/my-accordion.js"></script>
     <style>
@@ -129,5 +130,12 @@
       <div slot="panel">Content for Tab 2</div>
       <div slot="panel">Content for Tab 3</div>
     </my-tabs>
+    <my-date-picker
+      name="dob"
+      label="Date of Birth"
+      required
+      min="1900-01-01"
+      max="2025-12-31"
+    ></my-date-picker>
   </body>
 </html>
