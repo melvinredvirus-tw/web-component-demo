@@ -39,6 +39,7 @@
     "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "prepare": "husky install",
     "release:patch": "npm version patch && git push && git push --tags",
     "release:minor": "npm version minor && git push && git push --tags",
     "release:major": "npm version major && git push && git push --tags"
@@ -79,6 +80,7 @@
     "@webcomponents/webcomponentsjs": "^2.8.0",
     "eslint": "^8.15.0",
     "eslint-plugin-storybook": "^9.0.15",
+    "husky": "^9.1.7",
     "lit-analyzer": "^1.2.1",
     "playwright": "^1.53.2",
     "prettier": "^2.6.2",
