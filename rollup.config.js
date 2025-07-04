@@ -14,9 +14,14 @@ import typescript from '@rollup/plugin-typescript'; // Import the TypeScript plu
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/index.bundled.ts',
-    format: 'es',
+    dir: 'dist', // Output to the 'dist' directory
+    format: 'es', // Output as ES Modules
+    preserveModules: true, // Crucial: maintains original module structure in 'dist'
+    preserveModulesRoot: 'src', // Maps 'src/' paths to 'dist/'
+    entryFileNames: '[name].js', // e.g., 'index.js', 'components/my-button.js'
+    chunkFileNames: 'chunks/[name]-[hash].js' // For shared code chunks (e.g., Lit library itself)
   },
+  external: ['lit', 'lit/decorators.js', '@lit/reactive-element', 'tslib'], // Add any other peer dependencies
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
       console.error(`(!) ${warning.message}`);

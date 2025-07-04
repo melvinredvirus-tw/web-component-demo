@@ -3,17 +3,28 @@
   "private": true,
   "version": "0.0.9",
   "description": "A simple web component",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "types/index.d.ts", 
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
-    "dist"
+    "dist/",
+    "types/"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "ROLLUP_WATCH=false rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build": "npm run clean && npm run build:types && npm run build:js",
     "build:watch": "ROLLUP_WATCH=true rollup -c",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
