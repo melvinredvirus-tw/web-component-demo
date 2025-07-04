@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import {customElement, property} from 'lit/decorators.js';
 
 @customElement('my-form')
 export class MyForm extends LitElement {
@@ -58,6 +58,11 @@ export class MyForm extends LitElement {
     }
   `;
 
+  @property({type: Function}) onSubmit?: (
+    data: Record<string, string>,
+    event: Event
+  ) => void;
+
   private _onSubmit(e: Event) {
     e.preventDefault();
     const data: Record<string, string> = {};
@@ -91,14 +96,18 @@ export class MyForm extends LitElement {
         data[el.name] = el.value;
       }
     });
-    console.info('Form submitted with data:', data);
-    this.dispatchEvent(
-      new CustomEvent('form-submit', {
-        detail: data,
-        bubbles: true,
-        composed: true,
-      })
-    );
+
+    if (typeof this.onSubmit === 'function') {
+      this.onSubmit(data, e);
+    } else {
+      this.dispatchEvent(
+        new CustomEvent('form-submit', {
+          detail: data,
+          bubbles: true,
+          composed: true,
+        })
+      );
+    }
 
     // Optionally reset fields
     assignedElements.forEach((el) => {
@@ -126,7 +135,6 @@ export class MyForm extends LitElement {
     return html`
       <form @submit=${this._onSubmit}>
         <slot></slot>
-        <button type="submit">Submit</button>
       </form>
     `;
   }

@@ -18,7 +18,7 @@ export default {
   },
 };
 
-export const Default = (args: any) => html`
+export const Default = (args: Record<string, unknown>) => html`
   <my-modal
     ?open=${args.open}
     size=${args.size}
@@ -36,7 +36,7 @@ Default.args = {
   size: '400x200',
 };
 
-export const Themed = (args: any) => html`
+export const Themed = (args: Record<string, unknown>) => html`
   <my-modal
     ?open=${args.open}
     size=${args.size}
@@ -62,7 +62,7 @@ Themed.args = {
   size: '500x250',
 };
 
-export const CustomSize = (args: any) => html`
+export const CustomSize = (args: Record<string, unknown>) => html`
   <my-modal
     ?open=${args.open}
     size=${args.size}

@@ -23,7 +23,12 @@ export default {
   },
 };
 
-export const Default = (args: any) => html`
+interface LoaderSkeletonArgs {
+  shape: 'rect' | 'circle' | 'text';
+  size: string;
+}
+
+export const Default = (args: LoaderSkeletonArgs) => html`
   <loader-skeleton shape=${args.shape} size=${args.size}></loader-skeleton>
 `;
 

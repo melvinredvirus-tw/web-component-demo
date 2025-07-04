@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 let MyForm = class MyForm extends LitElement {
     _onSubmit(e) {
         e.preventDefault();
@@ -33,12 +33,16 @@ let MyForm = class MyForm extends LitElement {
                 data[el.name] = el.value;
             }
         });
-        console.info('Form submitted with data:', data);
-        this.dispatchEvent(new CustomEvent('form-submit', {
-            detail: data,
-            bubbles: true,
-            composed: true,
-        }));
+        if (typeof this.onSubmit === 'function') {
+            this.onSubmit(data, e);
+        }
+        else {
+            this.dispatchEvent(new CustomEvent('form-submit', {
+                detail: data,
+                bubbles: true,
+                composed: true,
+            }));
+        }
         // Optionally reset fields
         assignedElements.forEach((el) => {
             if (el instanceof HTMLFormElement) {
@@ -61,7 +65,6 @@ let MyForm = class MyForm extends LitElement {
         return html `
       <form @submit=${this._onSubmit}>
         <slot></slot>
-        <button type="submit">Submit</button>
       </form>
     `;
     }
@@ -120,6 +123,9 @@ MyForm.styles = css `
       background: var(--color-accent, #ff5722);
     }
   `;
+__decorate([
+    property({ type: Function })
+], MyForm.prototype, "onSubmit", void 0);
 MyForm = __decorate([
     customElement('my-form')
 ], MyForm);

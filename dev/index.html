@@ -1,108 +1,113 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;my-element> Demo</title>
+    <link rel="stylesheet" href="../src/theme.css" />
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../dist/my-header.js"></script>
+    <script type="module" src="../dist/molecules/my-product-card.js"></script>
+    <script type="module" src="../dist/my-form.js"></script>
+    <script type="module" src="../dist/my-modal.js"></script>
+    <script type="module" src="../dist/loader-skeleton.js"></script>
+    <script type="module" src="../dist/my-snackbar.js"></script>
+    <script type="module" src="../dist/molecules/my-accordion.js"></script>
+    <style>
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+        padding: 16px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>&lt;my-element> Demo</title>
-  <link rel="stylesheet" href="../src/theme.css" />
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../node_modules/lit/polyfill-support.js"></script>
-  <script type="module" src="../my-element.js"></script>
-  <script type="module" src="../dist/my-header.js"></script>
-  <script type="module" src="../dist/molecules/my-product-card.js"></script>
-  <script type="module" src="../dist/my-form.js"></script>
-  <script type="module" src="../dist/my-modal.js"></script>
-  <script type="module" src="../dist/loader-skeleton.js"></script>
-  <script type="module" src="../dist/my-snackbar.js"></script>
-  <script type="module" src="../dist/molecules/my-accordion.js"></script>
-  <style>
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-      padding: 16px;
-    }
-  </style>
-</head>
+  <body>
+    <my-element>
+      <p>This is child content</p>
+    </my-element>
+    <my-header>
+      <button slot="title">Home</button>
+      <button slot="actions">Login</button>
+      <button slot="actions">Cart</button>
+    </my-header>
+    <my-snackbar id="snackbar"></my-snackbar>
+    <my-modal id="modal" size="600x300">
+      <h2>Large Modal</h2>
+      <p>This modal is 600x300 pixels.</p>
+    </my-modal>
+    <button id="notify-btn">Show Notification</button>
+    <button id="open-modal-btn">Open Modal</button>
+    <div class="card-grid">
+      <my-product-card
+        name="Sample Product 1"
+        image="https://5.imimg.com/data5/SELLER/Default/2023/3/CR/HS/CC/15900654/apple-iphone-14-pro-max-128gb-blue-mobile-phone-500x500.png"
+        price="199.99"
+      >
+        <a slot="link" href="/product/1">View Details</a>
+      </my-product-card>
+    </div>
+    <loader-skeleton shape="rect" size="400x60"></loader-skeleton>
+    <loader-skeleton shape="circle" size="80x80"></loader-skeleton>
+    <loader-skeleton shape="text"></loader-skeleton>
+    <my-form>
+      <label>
+        Name:
+        <input name="name" required />
+      </label>
+      <label>
+        Email:
+        <input name="email" type="email" required />
+      </label>
+      <label>
+        Age:
+        <input name="age" type="number" />
+      </label>
+      <button type="submit">Submit</button>
+    </my-form>
+    <my-accordion title="Product Details">
+      <p>
+        This product is made of 100% organic cotton. Wash in cold water only.
+      </p>
+    </my-accordion>
 
-<body>
-  <my-element>
-    <p>This is child content</p>
-  </my-element>
-  <my-header>
-    <button slot="title">Home</button>
-    <button slot="actions">Login</button>
-    <button slot="actions">Cart</button>
-  </my-header>
-  <my-snackbar id="snackbar"></my-snackbar>
-  <my-modal id="modal" size="600x300">
-    <h2>Large Modal</h2>
-    <p>This modal is 600x300 pixels.</p>
-  </my-modal>
-  <button id="notify-btn">Show Notification</button>
-  <button id="open-modal-btn">Open Modal</button>
-  <div class="card-grid">
-    <my-product-card name="Sample Product 1"
-      image="https://5.imimg.com/data5/SELLER/Default/2023/3/CR/HS/CC/15900654/apple-iphone-14-pro-max-128gb-blue-mobile-phone-500x500.png"
-      price="199.99">
-      <a slot="link" href="/product/1">View Details</a>
-    </my-product-card>
-  </div>
-  <loader-skeleton shape="rect" size="400x60"></loader-skeleton>
-  <loader-skeleton shape="circle" size="80x80"></loader-skeleton>
-  <loader-skeleton shape="text"></loader-skeleton>
-  <my-form>
-    <label>
-      Name:
-      <input name="name" required />
-    </label>
-    <label>
-      Email:
-      <input name="email" type="email" required />
-    </label>
-    <label>
-      Age:
-      <input name="age" type="number" />
-    </label>
-  </my-form>
-  <my-accordion title="Product Details">
-    <p>
-      This product is made of 100% organic cotton. Wash in cold water only.
-    </p>
-  </my-accordion>
+    <my-accordion title="Shipping Info">
+      <p>Ships within 3-5 business days. Free delivery on orders above ₹999.</p>
+    </my-accordion>
 
-  <my-accordion title="Shipping Info">
-    <p>
-      Ships within 3-5 business days. Free delivery on orders above ₹999.
-    </p>
-  </my-accordion>
+    <my-accordion title="Return Policy">
+      <p>Return within 15 days for a full refund. Terms apply.</p>
+      <button>Cancel</button>
+      <button>Agree</button>
+    </my-accordion>
 
-  <my-accordion title="Return Policy">
-    <p>Return within 15 days for a full refund. Terms apply.</p>
-    <button>Cancel</button>
-    <button>Agree</button>
-  </my-accordion>
+    <script>
+      // To open/close:
+      const modal = document.getElementById('modal');
+      document
+        .getElementById('open-modal-btn')
+        .addEventListener('click', () => {
+          modal.open = true;
+        });
+    </script>
+    <!-- ...existing code... -->
+    <script>
+      const button = document.getElementById('notify-btn');
+      const snackbar = document.getElementById('snackbar');
 
-  <script>
-    // To open/close:
-    const modal = document.getElementById('modal');
-    document
-      .getElementById('open-modal-btn')
-      .addEventListener('click', () => {
-        modal.open = true;
+      button.addEventListener('click', () => {
+        console.log('button clicked');
+        snackbar.show('This is a notification triggered by the button!');
       });
-  </script>
-  <!-- ...existing code... -->
-  <script>
-    const button = document.getElementById('notify-btn');
-    const snackbar = document.getElementById('snackbar');
-
-    button.addEventListener('click', () => {
-      console.log('button clicked');
-      snackbar.show('This is a notification triggered by the button!');
-    });
-  </script>
-</body>
-
+    </script>
+    <my-form
+      .onSubmit="${(data, e) => { console.log('Custom submit:', data); }}"
+    >
+      <label> Name: <input name="name" /> </label>
+      <button type="submit">Submit</button>
+    </my-form>
+  </body>
 </html>
