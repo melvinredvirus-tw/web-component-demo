@@ -4,9 +4,6 @@
     "module": "es2020",
     "lib": ["es2021", "DOM", "DOM.Iterable"],
     "declaration": true,
-    "declarationMap": false,
-    "sourceMap": false,
-    // "inlineSources": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "declarationDir": "./dist/types",  /* Output .d.ts files to the 'types' directory */
@@ -28,11 +25,10 @@
         "strict": true
       }
     ],
-    "types": []
+    "types": ["mocha"]
   },
   "include": ["src/**/*.ts"],
   "exclude": [
-    "src/**/*test.ts",
     "node_modules",
     ".storybook",
     "src/stories/**/*",
