@@ -18,6 +18,8 @@ import { MyIcon } from './atoms/my-icon';
 import { MyBannerBox } from './atoms/my-banner-box';
 import { MyCarousel } from './atoms/my-carousel';
 import MyCalendar from './atoms/my-calendar';
+import { MyTooltip } from './atoms/my-tooltip';
+import {MyAnimator} from './atoms/my-animator';
 
 export {
   // Atoms
@@ -38,6 +40,8 @@ export {
   MyLoader,
   MyBannerBox,
   MyCarousel,
+  MyTooltip,
+  MyAnimator,
 
   // Molecules
   MyProductCard,
