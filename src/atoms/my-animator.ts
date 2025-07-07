@@ -65,12 +65,15 @@ export class MyAnimator extends LitElement {
     
     .cool {
       animation-name: cool;
-      easing: cubic-bezier(.5, -0.5, 1, 2);
     }
       
-    @keyframes cool {
-      from { opacity: 0; transform: translateX(-50px);}
-      to   { opacity: 1; transform: translateX(0);}
+   @keyframes cool {
+  0%   { opacity: 0;   transform: translateX(-24px);}
+  30%  { opacity: 0.6; transform: translateX(6px);}
+  60%  { opacity: 1;   transform: translateX(12px);}
+  80%  { opacity: 1;   transform: translateX(4px);}
+  100% { opacity: 1;   transform: translateX(0);}
+}
     }
 
     @keyframes slideIn {
@@ -100,20 +103,10 @@ export class MyAnimator extends LitElement {
   `;
 
   protected override updated(changed: PropertyValues) {
-    console.log("updated called!!")
-    if (this.animationType !== "cool") {
       if (changed.has('duration') || changed.has('easing')) {
       this.style.setProperty('--animator-duration', `${this.duration}ms`);
       this.style.setProperty('--animator-easing', this.easing);
       }
-    } else {
-      if (changed.has('duration') || changed.has('easing')) {
-      this.style.setProperty('--animator-duration', `${this.duration}ms`);
-      this.style.setProperty('--animator-easing', `cubic-bezier(.5, -0.5, 1, 2)`);
-    }
-
-    }
-
   }
 
   override render() {
