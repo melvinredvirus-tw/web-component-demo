@@ -1,4 +1,6 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
+import type { MyCheckbox } from './my-checkbox';
 import './my-checkbox';
 
 export default {
@@ -13,15 +15,14 @@ export default {
       control: 'boolean',
       description: 'Whether the checkbox is disabled',
     },
-    label: {control: 'text', description: 'The label for the checkbox'},
-    change: {
-      action: 'change',
-      description: 'Event fired when the checkbox state changes',
+    label: {
+      control: 'text',
+      description: 'The label for the checkbox'
     },
   },
-};
+} satisfies Meta<MyCheckbox>;
 
-const Template = ({checked, disabled, label}) => html`
+const Template = ({checked, disabled, label}: MyCheckbox) => html`
   <my-checkbox
     .checked=${checked}
     .disabled=${disabled}
@@ -52,9 +53,9 @@ Disabled.args = {
   label: 'Disabled Checkbox',
 };
 
-export const Themed = () => html`
+export const Themed = (args: MyCheckbox) => html`
   <my-checkbox
-    .label="Themed Checkbox"
+    .label=${args.label}
     style="--checkbox-bg-checked: #28a745; --checkbox-border-color-checked: #28a745;"
   ></my-checkbox>
 `;

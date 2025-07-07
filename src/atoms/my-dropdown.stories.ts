@@ -1,25 +1,33 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
+import type { MyDropdown } from './my-dropdown';
 import './my-dropdown';
 
 export default {
-  title: 'Components/MyDropdown',
+  title: 'Atoms/MyDropdown',
   component: 'my-dropdown',
-  tags: ['autodocs'],
   argTypes: {
-    options: {control: 'object'},
-    selected: {control: 'text'},
-    placeholder: {control: 'text'},
-    disabled: {control: 'boolean'},
-    onChange: {action: 'change'},
+    options: { control: 'object' },
+    selected: { control: 'text' },
+    placeholder: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
-};
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A reusable dropdown atom with theming and accessibility support.',
+      },
+    },
+  },
+} satisfies Meta<MyDropdown>;
 
-const Template = ({options, selected, placeholder, disabled}: any) => html`
+const Template = (args: MyDropdown) => html`
   <my-dropdown
-    .options=${options}
-    .selected=${selected}
-    .placeholder=${placeholder}
-    ?disabled=${disabled}
+    .options=${args.options}
+    .selected=${args.selected}
+    .placeholder=${args.placeholder}
+    ?disabled=${args.disabled}
     @change=${(e: CustomEvent) => console.log('Change event:', e.detail)}
   ></my-dropdown>
 `;
@@ -27,23 +35,23 @@ const Template = ({options, selected, placeholder, disabled}: any) => html`
 export const Default = Template.bind({});
 Default.args = {
   options: [
-    {value: 'apple', label: 'Apple'},
-    {value: 'banana', label: 'Banana'},
-    {value: 'cherry', label: 'Cherry'},
+    { value: 'apple', label: 'Apple' },
+    { value: 'banana', label: 'Banana' },
+    { value: 'cherry', label: 'Cherry' },
   ],
   selected: '',
   placeholder: 'Select a fruit',
   disabled: false,
-};
+} as MyDropdown;
 
 export const PreSelected = Template.bind({});
 PreSelected.args = {
   ...Default.args,
   selected: 'banana',
-};
+} as MyDropdown;
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
-};
+} as MyDropdown;

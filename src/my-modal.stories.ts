@@ -1,9 +1,19 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
 import './my-modal';
+
+type MyModalArgs = {
+  open: boolean;
+  size: string;
+};
 
 export default {
   title: 'Components/MyModal',
   component: 'my-modal',
+  argTypes: {
+    open: { control: 'boolean' },
+    size: { control: 'text' },
+  },
   parameters: {
     docs: {
       description: {
@@ -12,13 +22,9 @@ export default {
       },
     },
   },
-  argTypes: {
-    open: {control: 'boolean'},
-    size: {control: 'text'},
-  },
-};
+} satisfies Meta<MyModalArgs>;
 
-export const Default = (args: Record<string, unknown>) => html`
+const Template = (args: MyModalArgs) => html`
   <my-modal
     ?open=${args.open}
     size=${args.size}
@@ -31,12 +37,13 @@ export const Default = (args: Record<string, unknown>) => html`
   </my-modal>
 `;
 
+export const Default = Template.bind({});
 Default.args = {
   open: true,
   size: '400x200',
 };
 
-export const Themed = (args: Record<string, unknown>) => html`
+export const Themed = (args: MyModalArgs) => html`
   <my-modal
     ?open=${args.open}
     size=${args.size}
@@ -50,32 +57,11 @@ export const Themed = (args: Record<string, unknown>) => html`
       args.open = false;
     }}
   >
-    <h2 style="color:var(--color-text)">Dark Themed Modal</h2>
-    <p style="color:var(--color-text)">
-      This modal uses custom theme variables.
-    </p>
+    <h2>Themed Modal</h2>
+    <p>This modal uses custom theme variables.</p>
   </my-modal>
 `;
-
 Themed.args = {
   open: true,
-  size: '500x250',
-};
-
-export const CustomSize = (args: Record<string, unknown>) => html`
-  <my-modal
-    ?open=${args.open}
-    size=${args.size}
-    @close=${() => {
-      args.open = false;
-    }}
-  >
-    <h2>Custom Size Modal</h2>
-    <p>This modal is 600x400 pixels.</p>
-  </my-modal>
-`;
-
-CustomSize.args = {
-  open: true,
-  size: '600x400',
+  size: '400x200',
 };

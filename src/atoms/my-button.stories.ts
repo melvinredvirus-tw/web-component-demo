@@ -1,5 +1,11 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { MyButton } from './my-button';
+import type { Meta } from '@storybook/web-components-vite';
 import './my-button';
+
+type ButtonArgs = MyButton & {
+  slotContent: string | ReturnType<typeof html>
+}
 
 export default {
   title: 'Atoms/MyButton',
@@ -11,6 +17,7 @@ export default {
     },
     label: {control: 'text'},
     disabled: {control: 'boolean'},
+    slotContent: {control: 'text'},
   },
   parameters: {
     docs: {
@@ -20,41 +27,55 @@ export default {
       },
     },
   },
-};
+} satisfies Meta<ButtonArgs>;
 
-interface MyButtonArgs {
-  type: 'button' | 'submit';
-  label: string;
-  disabled: boolean;
-}
 
-export const Default = (args: MyButtonArgs) => html`
+const Template = (args: ButtonArgs) => html`
   <my-button
-    type=${args.type}
+    .type=${args.type}
     .label=${args.label}
     ?disabled=${args.disabled}
-  ></my-button>
+  >${args.slotContent}</my-button>
 `;
 
+export const Default = Template.bind({});
 Default.args = {
   type: 'button',
   label: 'Click Me',
   disabled: false,
-};
+  slotContent: '',
+} as ButtonArgs;
 
-export const WithSlot = () => html`
-  <my-button>
-    <span>Custom <strong>Slot</strong> Content</span>
-  </my-button>
-`;
+export const WithSlot = Template.bind({});
 
-export const Disabled = () => html`
-  <my-button disabled label="Disabled"></my-button>
-`;
+WithSlot.args = {
+  type: 'button',
+  label: 'Click Me',
+  disabled: false,
+  slotContent: html`<span>Custom <strong>Slot</strong> Content</span>`
+} as ButtonArgs;
 
-export const Themed = () => html`
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  type: 'button',
+  label: 'Disabled',
+  disabled: true,
+  slotContent: '',
+} as ButtonArgs;
+
+export const Themed = (args: ButtonArgs) => html`
   <my-button
-    label="Themed Button"
+    .type=${args.type}
+    .label=${args.label}
+    ?disabled=${args.disabled}
     style="--color-primary: #28a745; --color-accent: #e60100;"
-  ></my-button>
+  >${args.slotContent}</my-button>
 `;
+
+Themed.args = {
+  type: 'button',
+  label: 'Themed Button',
+  disabled: true,
+  slotContent: '',
+} as ButtonArgs;

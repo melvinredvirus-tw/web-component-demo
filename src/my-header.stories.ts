@@ -1,8 +1,9 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
 import './my-header';
 
 export default {
-  title: 'Components/MyHeader',
+  title: 'Atoms/MyHeader',
   component: 'my-header',
   parameters: {
     docs: {
@@ -12,15 +13,17 @@ export default {
       },
     },
   },
-};
+} satisfies Meta;
 
-export const Default = () => html`
+const Template = () => html`
   <my-header>
     <span slot="title">My Shop</span>
     <button slot="actions">Login</button>
     <button slot="actions">Cart</button>
   </my-header>
 `;
+
+export const Default = Template.bind({});
 
 export const Themed = () => html`
   <my-header

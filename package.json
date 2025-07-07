@@ -84,6 +84,8 @@
     "@storybook/web-components-vite": "^9.0.15",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
     "@web/dev-server": "^0.1.31",
     "@web/dev-server-legacy": "^1.0.0",
     "@web/test-runner": "^0.15.0",
@@ -101,7 +103,8 @@
     "rollup-plugin-minify-html-literals": "^1.2.6",
     "rollup-plugin-summary": "^2.0.1",
     "storybook": "^9.0.15",
-    "typescript": "~5.5.0"
+    "typescript": "~5.5.0",
+    "vitest": "^3.2.4"
   },
   "customElements": "custom-elements.json",
   "engines": {

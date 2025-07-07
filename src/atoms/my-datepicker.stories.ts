@@ -1,19 +1,23 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
+import type { MyDatePicker } from './my-datepicker';
 import './my-datepicker';
+
+type MyDatePickerArgs = MyDatePicker
 
 export default {
   title: 'Atoms/MyDatePicker',
   component: 'my-date-picker',
   argTypes: {
-    value: {control: 'text'},
-    name: {control: 'text'},
-    min: {control: 'text'},
-    max: {control: 'text'},
-    disabled: {control: 'boolean'},
-    placeholder: {control: 'text'},
-    label: {control: 'text'},
-    required: {control: 'boolean'},
-    ariaInvalid: {control: 'text', name: 'aria-invalid'},
+    value: { control: 'text' },
+    name: { control: 'text' },
+    min: { control: 'text' },
+    max: { control: 'text' },
+    disabled: { control: 'boolean' },
+    placeholder: { control: 'text' },
+    label: { control: 'text' },
+    required: { control: 'boolean' },
+    ariaInvalid: { control: 'text', name: 'aria-invalid' },
   },
   parameters: {
     docs: {
@@ -23,21 +27,9 @@ export default {
       },
     },
   },
-};
+} satisfies Meta<MyDatePickerArgs>;
 
-interface MyDatePickerArgs {
-  value: string;
-  name: string;
-  min: string;
-  max: string;
-  disabled: boolean;
-  placeholder: string;
-  label: string;
-  required: boolean;
-  ariaInvalid: string;
-}
-
-export const Default = (args: MyDatePickerArgs) => html`
+const Template = (args: MyDatePickerArgs) => html`
   <my-date-picker
     .value=${args.value}
     name=${args.name}
@@ -51,9 +43,10 @@ export const Default = (args: MyDatePickerArgs) => html`
   ></my-date-picker>
 `;
 
+export const Default = Template.bind({});
 Default.args = {
   value: '',
-  name: 'date',
+  name: '',
   min: '',
   max: '',
   disabled: false,
@@ -61,7 +54,7 @@ Default.args = {
   label: 'Pick a date',
   required: false,
   ariaInvalid: '',
-};
+} as MyDatePickerArgs;
 
 export const WithMinMax = () => html`
   <my-date-picker
@@ -76,12 +69,8 @@ export const Disabled = () => html`
   <my-date-picker label="Disabled" disabled value="2025-01-01"></my-date-picker>
 `;
 
-export const Error = () => html`
-  <my-date-picker
-    label="Invalid Date"
-    aria-invalid="true"
-    value="2025-01-01"
-  ></my-date-picker>
+export const DatePickerError = () => html`
+  <my-date-picker aria-invalid="true" label="Error state"></my-date-picker>
 `;
 
 export const Themed = () => html`

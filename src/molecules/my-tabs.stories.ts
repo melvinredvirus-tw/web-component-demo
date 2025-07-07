@@ -1,9 +1,20 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
 import './my-tabs';
+
+type MyTabsArgs = {
+  selected: number;
+};
 
 export default {
   title: 'Molecules/MyTabs',
   component: 'my-tabs',
+  argTypes: {
+    selected: {
+      control: { type: 'number', min: 0, max: 2 },
+      description: 'Index of the selected tab',
+    },
+  },
   parameters: {
     docs: {
       description: {
@@ -12,15 +23,9 @@ export default {
       },
     },
   },
-  argTypes: {
-    selected: {
-      control: {type: 'number', min: 0, max: 2},
-      description: 'Index of the selected tab',
-    },
-  },
-};
+} satisfies Meta<MyTabsArgs>;
 
-export const Default = (args: {selected: number}) => html`
+const Template = (args: MyTabsArgs) => html`
   <my-tabs .selected=${args.selected}>
     <button slot="tab">Tab 1</button>
     <button slot="tab">Tab 2</button>
@@ -32,6 +37,7 @@ export const Default = (args: {selected: number}) => html`
   </my-tabs>
 `;
 
+export const Default = Template.bind({});
 Default.args = {
   selected: 0,
 };
@@ -52,21 +58,5 @@ export const Themed = () => html`
     <div slot="panel">Overview content goes here.</div>
     <div slot="panel">Specs content goes here.</div>
     <div slot="panel">Reviews content goes here.</div>
-  </my-tabs>
-`;
-
-export const Responsive = () => html`
-  <my-tabs>
-    <button slot="tab">Short</button>
-    <button slot="tab">A Very Long Tab Name</button>
-    <button slot="tab">Tab 3</button>
-    <button slot="tab">Tab 4</button>
-    <button slot="tab">Tab 5</button>
-
-    <div slot="panel">Short content</div>
-    <div slot="panel">Long tab content</div>
-    <div slot="panel">Tab 3 content</div>
-    <div slot="panel">Tab 4 content</div>
-    <div slot="panel">Tab 5 content</div>
   </my-tabs>
 `;

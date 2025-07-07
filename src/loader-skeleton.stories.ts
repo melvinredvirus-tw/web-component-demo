@@ -1,17 +1,22 @@
-import {html} from 'lit';
+import { html } from 'lit';
+import type { Meta } from '@storybook/web-components-vite';
+import type { LoaderSkeleton } from './loader-skeleton';
 import './loader-skeleton';
 
+type LoaderSkeletonArgs = LoaderSkeleton & {
+  shape: 'rect' | 'circle' | 'text';
+  size: string;
+};
+
 export default {
-  title: 'Components/LoaderSkeleton',
+  title: 'Atoms/LoaderSkeleton',
   component: 'loader-skeleton',
   argTypes: {
     shape: {
-      control: {type: 'select'},
+      control: { type: 'select' },
       options: ['rect', 'circle', 'text'],
     },
-    size: {
-      control: 'text',
-    },
+    size: { control: 'text' },
   },
   parameters: {
     docs: {
@@ -21,34 +26,34 @@ export default {
       },
     },
   },
-};
+} satisfies Meta<LoaderSkeletonArgs>;
 
-interface LoaderSkeletonArgs {
-  shape: 'rect' | 'circle' | 'text';
-  size: string;
-}
-
-export const Default = (args: LoaderSkeletonArgs) => html`
+const Template = (args: LoaderSkeletonArgs) => html`
   <loader-skeleton shape=${args.shape} size=${args.size}></loader-skeleton>
 `;
 
+export const Default = Template.bind({});
 Default.args = {
   shape: 'rect',
   size: '100x20',
-};
+} as LoaderSkeletonArgs;
 
-export const Circle = () => html`
-  <loader-skeleton shape="circle" size="40x40"></loader-skeleton>
-`;
+export const Circle = Template.bind({});
+Circle.args = {
+  shape: 'circle',
+  size: '40x40',
+} as LoaderSkeletonArgs;
 
-export const Text = () => html`
-  <loader-skeleton shape="text"></loader-skeleton>
-`;
+export const Text = Template.bind({});
+Text.args = {
+  shape: 'text',
+  size: '',
+} as LoaderSkeletonArgs;
 
 export const Themed = () => html`
   <loader-skeleton
     shape="rect"
-    size="200x30"
-    style="--skeleton-bg: linear-gradient(90deg, #e0e0e0 25%, #bdbdbd 37%, #e0e0e0 63%);"
+    size="100x20"
+    style="--skeleton-bg: #222; --skeleton-highlight: #444;"
   ></loader-skeleton>
 `;
