@@ -17,9 +17,11 @@ import { IconElement } from './atoms/icon-element';
 import { MyIcon } from './atoms/my-icon';
 import { MyBannerBox } from './atoms/my-banner-box';
 import { MyCarousel } from './atoms/my-carousel';
+import MyCalendar from './atoms/my-calendar';
 
 export {
   // Atoms
+  MyCalendar,
   MyInput,
   IconElement,
   MyIcon,
