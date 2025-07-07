@@ -15,9 +15,11 @@ import { MyLoader } from './atoms/my-loader';
 import { MyTabs } from './molecules/my-tabs';
 import { IconElement } from './atoms/icon-element';
 import { MyIcon } from './atoms/my-icon';
+import MyCalendar from './atoms/my-calendar';
 
 export {
   // Atoms
+  MyCalendar,
   MyInput,
   IconElement,
   MyIcon,

@@ -8,7 +8,10 @@ export class IconElement extends LitElement {
       display: inline-flex;
       width: var(--icon-size, 1em);
       height: var(--icon-size, 1em);
-      color: var(--icon-color, currentColor);
+      color: var(--icon-color, var(--color-text, currentColor));
+      /* Use design system font and transition */
+      font-family: var(--font-family-sans, 'Inter', sans-serif);
+      vertical-align: middle;
     }
     svg {
       width: 100%;
@@ -18,7 +21,9 @@ export class IconElement extends LitElement {
       stroke-width: var(--icon-stroke-width, 2px);
       stroke-linecap: round;
       stroke-linejoin: round;
-      transition: color 0.2s;
+      transition: color var(--transition-fast, 0.15s ease-in-out);
+      /* Responsive and accessible */
+      display: block;
     }
   `;
 
@@ -40,7 +45,9 @@ export class IconElement extends LitElement {
       star: svg`<polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2"/>`,
       settings: svg`<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>`,
       plus: svg`<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>`,
-      minus: svg`<line x1="5" y1="12" x2="19" y2="12"/>`
+      minus: svg`<line x1="5" y1="12" x2="19" y2="12"/>`,
+      "chevron-left": svg`<polyline points="15 18 9 12 15 6" />`,
+      "chevron-right": svg`<polyline points="9 6 15 12 9 18" />`,
     };
     return icons[this.name] || null;
   }
