@@ -15,6 +15,7 @@ import { MyLoader } from './atoms/my-loader';
 import { MyTabs } from './molecules/my-tabs';
 import { IconElement } from './atoms/icon-element';
 import { MyIcon } from './atoms/my-icon';
+import { MyBannerBox } from './atoms/my-banner-box';
 
 export {
   // Atoms
@@ -32,6 +33,7 @@ export {
   MyDatePicker,
   MyDropdown,
   MyLoader,
+  MyBannerBox,
 
   // Molecules
   MyProductCard,

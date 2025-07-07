@@ -138,19 +138,36 @@
     
     <my-loader size="3rem" color="#e60100" label="Saving..."></my-loader>
 
-<my-icon name="search"size="32px" color="red"></my-icon>
-<my-icon name="close"></my-icon>
+    <my-icon name="search"size="32px" color="red"></my-icon>
+    <my-icon name="close"></my-icon>
 
 
-<my-icon name="circle" size="32px" color="red"></my-icon>
+    <my-icon name="circle" size="32px" color="red"></my-icon>
 
 
-<my-icon name="user" label="User profile"></my-icon>
+    <my-icon name="user" label="User profile"></my-icon>
 
-<icon-element name="check" size="20px" color="blue" label="Success"></icon-element>
-<icon-element name="heart" size="40px" color="red" label="Success"></icon-element>
-<icon-element name="star" size="60px" color="green" label="Success"></icon-element>
+    <icon-element name="check" size="20px" color="blue" label="Success"></icon-element>
+    <icon-element name="heart" size="40px" color="red" label="Success"></icon-element>
+    <icon-element name="star" size="60px" color="green" label="Success"></icon-element>
 
-<my-loader></my-loader>
+    <my-loader></my-loader>
+    
+    <h2>Trigger Banner</h2>
+
+    <button onclick="showBanner('Info', 'This is an informational banner.', 'info')">Info</button>
+    <button onclick="showBanner('Success', 'Operation completed.', 'success')">Success</button>
+    <button onclick="showBanner('Warning', 'Be cautious!', 'warning')">Warning</button>
+    <button onclick="showBanner('Error', 'Something went wrong!', 'error')">Error</button>
+
+    <my-banner-box id="banner"></my-banner-box>
+
+    <script>
+      async function showBanner(title, description, type) {
+        const banner = document.getElementById('banner');
+        await customElements.whenDefined('my-banner-box');
+        banner.show(title, description, type);
+      }
+    </script>
   </body>
 </html>
