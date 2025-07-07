@@ -24,7 +24,7 @@
   "scripts": {
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "rollup -c",
-    "build": "npm run clean && rm -rf dist && npm run build:js",
+    "build": "npm run clean && rimraf dist && npm run build:js",
     "build:watch": "ROLLUP_WATCH=true rollup -c",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
@@ -48,7 +48,7 @@
     "test:watch": "npm run build:test && npm-run-all --parallel 'test:dev --watch' 'build:test --watch'",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js",
+    "checksize": "rollup -c ; cat dist/index.js | gzip -9 | wc -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
@@ -108,8 +108,8 @@
   },
   "customElements": "custom-elements.json",
   "engines": {
-    "node": ">=18.0.0 <22.0.0",
-    "npm": ">=8.0.0 <11.0.0",
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
     "yarn": ">=1.22.0 <2.0.0 || >=3.0.0 <5.0.0"
   }
 }
