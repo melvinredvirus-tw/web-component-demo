@@ -16,6 +16,7 @@ import { MyTabs } from './molecules/my-tabs';
 import { IconElement } from './atoms/icon-element';
 import { MyIcon } from './atoms/my-icon';
 import { MyBannerBox } from './atoms/my-banner-box';
+import { MyCarousel } from './atoms/my-carousel';
 
 export {
   // Atoms
@@ -34,6 +35,7 @@ export {
   MyDropdown,
   MyLoader,
   MyBannerBox,
+  MyCarousel,
 
   // Molecules
   MyProductCard,

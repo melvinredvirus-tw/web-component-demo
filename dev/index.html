@@ -152,7 +152,7 @@
     <icon-element name="star" size="60px" color="green" label="Success"></icon-element>
 
     <my-loader></my-loader>
-    
+
     <h2>Trigger Banner</h2>
 
     <button onclick="showBanner('Info', 'This is an informational banner.', 'info')">Info</button>
@@ -169,5 +169,12 @@
         banner.show(title, description, type);
       }
     </script>
+
+    <h2>Carousel</h2>
+    <my-carousel interval="2000" style="max-width: 600px; height: 250px;">
+      <img src="./static/ubs-image1.png" />
+      <img src="./static/ubs-image2.png" />
+      <img src="./static/ubs-image3.png" />
+    </my-carousel>
   </body>
 </html>
