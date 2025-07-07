@@ -20,6 +20,7 @@ import { MyCarousel } from './atoms/my-carousel';
 import MyCalendar from './atoms/my-calendar';
 import { MyTooltip } from './atoms/my-tooltip';
 import {MyAnimator} from './atoms/my-animator';
+import { MyProgress } from './my-progress';
 
 export {
   // Atoms
@@ -42,6 +43,7 @@ export {
   MyCarousel,
   MyTooltip,
   MyAnimator,
+  MyProgress,
 
   // Molecules
   MyProductCard,

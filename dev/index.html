@@ -15,6 +15,18 @@
         gap: 16px;
         padding: 16px;
       }
+      .progress-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+      .step-group {
+        margin-bottom: 2rem;
+      }
+      .step-label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
     </style>
   </head>
 
@@ -179,7 +191,7 @@
     </my-carousel>
     
     <my-calendar></my-calendar>
-<my-loader></my-loader>
+
 <my-tooltip text="This is a tooltip" position="top">
   <button>Hover me</button>
 </my-tooltip>
@@ -187,8 +199,44 @@
   <button>Hover me</button>
 </my-tooltip>
 
-<my-animator animationType="slide-in" duration="1000" easing="ease-out" theme="light"><div>Animated Content</div></my-animator>
+<my-animator animationType="slide-in" duration="1000" easing="ease-out" theme="light">
+  <div>Animated Content</div>
+</my-animator>
 <my-animator animationType="fade-in" duration="500" easing="ease-out" theme="dark"><div>Animated Content</div></my-animator>
-<my-animator animationType="cool" duration="1000"><div>Animated Content</div></my-animator>
+
+    <h2>Progress Bar</h2>
+    <div class="progress-container">
+      <div class="step-group">
+        <div class="step-label">Step 1: Initialized</div>
+        <my-progress value="0"></my-progress>
+      </div>
+
+      <div class="step-group">
+        <div class="step-label">Step 2: Uploading</div>
+        <my-progress value="25"></my-progress>
+      </div>
+
+      <div class="step-group">
+        <div class="step-label">Step 3: Validating</div>
+        <my-progress value="50"></my-progress>
+      </div>
+
+      <div class="step-group">
+        <div class="step-label">Step 4: Finalizing</div>
+        <my-progress value="75"></my-progress>
+      </div>
+
+
+      <div class="step-group">
+        <div class="step-label">Step 5: Completed</div>
+        <my-progress value="100"></my-progress>
+      </div>
+
+      <div class="step-group">
+        <div class="step-label">Indeterminate....</div>
+        <my-progress value="90" indeterminate></my-progress>
+      </div>
+
+    </div>
   </body>
 </html>
