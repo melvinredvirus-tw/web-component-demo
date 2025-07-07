@@ -13,10 +13,14 @@ import { MyDatePicker } from './atoms/my-datepicker';
 import { MyDropdown } from './atoms/my-dropdown';
 import { MyLoader } from './atoms/my-loader';
 import { MyTabs } from './molecules/my-tabs';
+import { IconElement } from './atoms/icon-element';
+import { MyIcon } from './atoms/my-icon';
 
 export {
   // Atoms
   MyInput,
+  IconElement,
+  MyIcon,
   MyButton,
   MySnackbar,
   MyModal,
