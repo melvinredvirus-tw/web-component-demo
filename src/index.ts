@@ -21,6 +21,7 @@ import MyCalendar from './atoms/my-calendar';
 import { MyTooltip } from './atoms/my-tooltip';
 import {MyAnimator} from './atoms/my-animator';
 import { MyProgress } from './my-progress';
+import { MySlider } from "./atoms/my-slider";
 
 export {
   // Atoms
@@ -44,6 +45,7 @@ export {
   MyTooltip,
   MyAnimator,
   MyProgress,
+  MySlider,
 
   // Molecules
   MyProductCard,
