@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import type { Meta } from '@storybook/web-components-vite';
-import './my-tabs';
+import '../molecules/my-tabs';
 
 type MyTabsArgs = {
   selected: number;

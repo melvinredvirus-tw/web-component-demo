@@ -1,5 +1,5 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import '../molecules/my-product-card';
+import '../../molecules/my-product-card';
 
 suite('my-product-card', () => {
   test('renders', async () => {

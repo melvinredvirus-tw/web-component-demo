@@ -1,5 +1,5 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import '../molecules/my-accordion';
+import '../../molecules/my-accordion';
 
 suite('my-accordion', () => {
   test('renders', async () => {
