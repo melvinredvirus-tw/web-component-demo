@@ -183,12 +183,21 @@
         banner.show(title, description, type);
       }
     </script>
-
     <h2>Carousel</h2>
-    <my-carousel interval="2000" style="max-width: 600px; height: 250px; margin: auto;">
+
+    <my-carousel
+      style="max-width: 600px; height: 250px; margin: auto;"
+      interval="2000"
+      autoplay
+      showButtons
+      showDots
+      loop
+      transitionDuration="700"
+    >
       <img src="./static/ubs-image1.png" />
       <img src="./static/ubs-image2.png" />
       <img src="./static/ubs-image3.png" />
+
     </my-carousel>
     
     <my-calendar></my-calendar>

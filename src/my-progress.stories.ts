@@ -1,5 +1,6 @@
 import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta } from '@storybook/web-components-vite';
+import type { StoryObj } from '@storybook/web-components';
 import './my-progress';
 
 // Storybook metadata

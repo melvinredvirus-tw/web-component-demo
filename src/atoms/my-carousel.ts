@@ -3,7 +3,14 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 
 @customElement('my-carousel')
 export class MyCarousel extends LitElement {
-  @property({ type: Number }) interval = 3000;
+  @property({ type: Number })  interval = 3000;
+  @property({ type: Number }) transitionDuration = 500; // ms
+  @property({ type: Boolean, reflect: true, converter: (value) => value !== null && value !== 'false' && value !== '0' }) autoplay = true;
+  @property({ type: Boolean, reflect: true, converter: (value) => value !== null && value !== 'false' && value !== '0' }) showButtons = true;
+  @property({ type: Boolean, reflect: true, converter: (value) => value !== null && value !== 'false' && value !== '0' }) showDots = true;
+  @property({ type: Boolean, reflect: true, converter: (value) => value !== null && value !== 'false' && value !== '0' }) loop = true;
+
+  
   @state() private currentIndex = 0;
   @query('.carousel-track') private track!: HTMLElement;
   private autoplayTimer: ReturnType<typeof setInterval> | null = null;
@@ -22,7 +29,7 @@ export class MyCarousel extends LitElement {
 
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform var(--carousel-transition, 0.5s) ease-in-out;
       will-change: transform;
     }
 
@@ -83,9 +90,19 @@ export class MyCarousel extends LitElement {
     .default { background-color: #ccc; }
   `;
 
+  override updated(changed: Map<string, unknown>) {
+    if (changed.has('transitionDuration')) {
+      this.style.setProperty('--carousel-transition', `${this.transitionDuration}ms`);
+    }
+    if (changed.has('autoplay') || changed.has('interval')) {
+      this.stopAutoplay();
+      if (this.autoplay) this.startAutoplay();
+    }
+  }
+
   override connectedCallback(): void {
     super.connectedCallback();
-    this.startAutoplay();
+    if (this.autoplay) this.startAutoplay();
   }
 
   override disconnectedCallback(): void {
@@ -99,25 +116,29 @@ export class MyCarousel extends LitElement {
       <div
         class="carousel-container"
         @mouseenter=${this.stopAutoplay}
-        @mouseleave=${this.startAutoplay}
+        @mouseleave=${() => this.autoplay && this.startAutoplay()}
       >
         <div class="carousel-track" style=${this.getTransform()}>
           <slot></slot>
         </div>
       </div>
 
-      <button class="prev" @click=${this.prev}>&lt;</button>
-      <button class="next" @click=${this.next}>&gt;</button>
+      ${this.showButtons ? html`
+        <button class="prev" @click=${this.prev}>&lt;</button>
+        <button class="next" @click=${this.next}>&gt;</button>
+      ` : null}
 
-      <div class="dots">
-        ${slides.map((slide, index) => {
-          const type = slide.getAttribute('data-type') || 'default';
-          return html`<div
-            class="dot ${type} ${this.currentIndex === index ? 'active' : ''}"
-            @click=${() => this.goTo(index)}
-          ></div>`;
-        })}
-      </div>
+      ${this.showDots ? html`
+        <div class="dots">
+          ${slides.map((slide, index) => {
+            const type = slide.getAttribute('data-type') || 'default';
+            return html`<div
+              class="dot ${type} ${this.currentIndex === index ? 'active' : ''}"
+              @click=${() => this.goTo(index)}
+            ></div>`;
+          })}
+        </div>
+      ` : null}
     `;
   }
 
@@ -127,12 +148,20 @@ export class MyCarousel extends LitElement {
 
   private next() {
     const total = this.children.length;
-    this.currentIndex = (this.currentIndex + 1) % total;
+    if (this.currentIndex < total - 1) {
+      this.currentIndex += 1;
+    } else if (this.loop) {
+      this.currentIndex = 0;
+    }
   }
 
   private prev() {
     const total = this.children.length;
-    this.currentIndex = (this.currentIndex - 1 + total) % total;
+    if (this.currentIndex > 0) {
+      this.currentIndex -= 1;
+    } else if (this.loop) {
+      this.currentIndex = total - 1;
+    }
   }
 
   private goTo(index: number) {
