@@ -68,12 +68,11 @@ export class MyAnimator extends LitElement {
     }
       
    @keyframes cool {
-  0%   { opacity: 0;   transform: translateX(-24px);}
-  30%  { opacity: 0.6; transform: translateX(6px);}
-  60%  { opacity: 1;   transform: translateX(12px);}
-  80%  { opacity: 1;   transform: translateX(4px);}
-  100% { opacity: 1;   transform: translateX(0);}
-}
+      0%   { opacity: 0;   transform: translateX(-24px);}
+      30%  { opacity: 0.6; transform: translateX(6px);}
+      60%  { opacity: 1;   transform: translateX(12px);}
+      80%  { opacity: 1;   transform: translateX(4px);}
+      100% { opacity: 1;   transform: translateX(0);}
     }
 
     @keyframes slideIn {

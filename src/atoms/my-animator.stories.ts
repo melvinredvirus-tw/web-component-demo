@@ -7,9 +7,9 @@ export default {
   argTypes: {
     animationType: {
       control: { type: 'select' },
-      options: ['fade', 'slide', 'zoom'],
+      options: ['fade-in', 'slide-in', 'zoom-in ', 'slide-left', 'cool'],
       description: 'Type of animation to apply',
-      defaultValue: 'fade',
+      defaultValue: 'fade-in',
     },
     duration: {
       control: { type: 'number' },
@@ -21,11 +21,6 @@ export default {
       options: ['linear', 'ease-in', 'ease-out', 'ease-in-out'],
       description: 'Easing function for the animation',
       defaultValue: 'ease-in-out',
-    },
-    active: {
-      control: 'boolean',
-      description: 'Toggle animation on/off',
-      defaultValue: true,
     },
     theme: {
       control: { type: 'select' },
