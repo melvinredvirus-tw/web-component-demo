@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 
 @customElement('my-carousel')
 export class MyCarousel extends LitElement {
@@ -12,7 +12,6 @@ export class MyCarousel extends LitElement {
 
   
   @state() private currentIndex = 0;
-  @query('.carousel-track') private track!: HTMLElement;
   private autoplayTimer: ReturnType<typeof setInterval> | null = null;
 
   static override styles = css`
